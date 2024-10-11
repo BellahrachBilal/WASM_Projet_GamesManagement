@@ -1,0 +1,19 @@
+﻿@page "/ListGames"
+@using DemoWASM.Models
+
+<h3>List Games</h3>
+
+<table class="table table-striped">
+    @foreach(Game g in Games)
+    {
+        <tr>
+            <td>@g.Title</td>
+            <td>@g.ReleaseYear</td>
+            <td>@g.Synopsis</td>
+        </tr>
+    }
+</table>
+
+@code {
+
+}

@@ -1,0 +1,28 @@
+﻿@page "/addgame"
+@using DemoWASM.Models
+
+<h3>Add Game</h3>
+<EditForm Model="game" OnValidSubmit="AddingGame">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <InputText id="title" class="form-control" @bind-Value="game.Title" required />
+    </div>
+
+    <div class="mb-3">
+        <label for="releaseYear" class="form-label">Release Year</label>
+        <InputNumber id="releaseYear" class="form-control" @bind-Value="game.ReleaseYear" required />
+    </div>
+
+    <div class="mb-3">
+        <label for="synopsis" class="form-label">Synopsis</label>
+        <InputTextArea id="synopsis" class="form-control" @bind-Value="game.Synopsis" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Game</button>
+</EditForm>
+@code {
+
+}

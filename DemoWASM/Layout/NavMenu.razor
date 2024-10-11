@@ -1,0 +1,124 @@
+﻿<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">DemoWASM</a>
+        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</div>
+
+<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
+    <nav class="flex-column">
+        <AuthorizeView>
+            <Authorized>
+
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="logout">
+                        <span class="bi bi-cross" aria-hidden="true"></span> Logout
+                    </NavLink>
+                </div>
+            </Authorized>
+            <NotAuthorized>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="login">
+                        <span class="bi bi-user" aria-hidden="true"></span> Login
+                    </NavLink>
+                </div>
+            </NotAuthorized>
+        </AuthorizeView>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="bi bi-house-door" aria-hidden="true"></span> Home
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="counter">
+                <span class="bi bi-plus-square" aria-hidden="true"></span> Counter
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="demo1">
+                <span class="bi bi-1-square" aria-hidden="true"></span> Bindings
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="demo2">
+                <span class="bi bi-2-square" aria-hidden="true"></span> MultiComposant
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="demo3">
+                <span class="bi bi-3-square" aria-hidden="true"></span> Virtualize
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="demo4">
+                <span class="bi bi-4-square" aria-hidden="true"></span> Formulaire
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="demo5">
+                <span class="bi bi-5-square" aria-hidden="true"></span> Javascript
+            </NavLink>
+        </div>
+
+        <AuthorizeView Roles="Admin">
+            <Authorized>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="demo6">
+                        <span class="bi bi-6-square" aria-hidden="true"></span> Conso HTTP
+                    </NavLink>
+                </div>
+            </Authorized>
+        </AuthorizeView>
+        <hr/>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="ListGames">
+                <span class="bi bi-6-square" aria-hidden="true"></span> Games List
+            </NavLink>
+        </div>
+        <AuthorizeView>
+            <Authorized>
+                <li class="nav-item px-3">
+                    <NavLink class="nav-link" href="AddGame">
+                        <span class="bi bi-7-square" aria-hidden="true"></span>Add Game
+                    </NavLink>
+                </li>
+            </Authorized>
+        </AuthorizeView>
+        <AuthorizeView Roles="Admin">
+            <Authorized>
+                <li class="nav-item px-3">
+                    <NavLink class="nav-link" href="DeleteGame">
+                        <span class="bi bi-8-square" aria-hidden="true"></span>Delete Game
+                    </NavLink>
+                </li>
+            </Authorized>
+        </AuthorizeView>
+
+        
+        <hr />
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="exo1">
+                <span class="bi bi-1-circle" aria-hidden="true"></span> Quizz
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="exo2">
+                <span class="bi bi-2-circle" aria-hidden="true"></span> Gestion Gamers
+            </NavLink>
+        </div>
+    </nav>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}

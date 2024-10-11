@@ -1,0 +1,6 @@
+﻿<h3>Bonjour @Prenom, voici la question @(NumQuestion +1)</h3>
+<h4>@Question</h4>
+<div>
+    <button class="btn btn-outline-danger" @onclick=@(() => Repondre("Non"))>Non</button>
+    <button class="btn btn-outline-success" @onclick=@(() => Repondre("Oui"))>Oui</button>
+</div>

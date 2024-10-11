@@ -1,0 +1,33 @@
+﻿@page "/DeleteGame"
+@using DemoWASM.Models
+
+<h3>DeleteGame</h3>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Release Year</th>
+            <th>Synopsis</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var game in Games)
+        {
+            <tr>
+
+                <td>@game.Id</td>
+                <td>@game.Title</td>
+                <td>@game.ReleaseYear</td>
+                <td>@game.Synopsis</td>
+                <td>
+                    <button class="btn btn-danger" @onclick="() => DeleteTheGame(game.Id)">Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@code {
+
+}

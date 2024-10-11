@@ -1,0 +1,29 @@
+﻿@page "/exo1"
+<h3>Exo1</h3>
+
+@if (!GameIsOver)
+{
+    @if (string.IsNullOrEmpty(Prenom))
+    {
+        <p>Votre prénom : <input type="text" @bind-value="Prenom" /></p>
+    }
+    else
+    {
+        <Quizz NumQuestion="Compteur"
+               Prenom="@Prenom"
+               Question="@(Questions[Compteur])"
+               ReponseEvent="ReceptionReponse"
+        ></Quizz>   
+    }
+}
+else
+{
+    <h3>Voici vos réponses :</h3>
+    <ul>
+        @foreach(string rep in Reponses)
+        {
+            <li>@rep</li>
+        }
+    </ul>
+    <p>Merci d'avoir participer</p>
+}

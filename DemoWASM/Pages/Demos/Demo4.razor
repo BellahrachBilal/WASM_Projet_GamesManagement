@@ -1,0 +1,31 @@
+﻿@page "/demo4"
+<h3>Demo4</h3>
+
+<EditForm Model="JeuForm" OnValidSubmit="SubmitForm">
+    <DataAnnotationsValidator />
+    <div class="form-control form-control-sm">
+        Titre : <InputText @bind-Value="JeuForm.Titre" />
+        <ValidationMessage For="() => JeuForm.Titre" />     
+    </div>
+    <div class="form-control form-control-sm">
+        Année de sortie : <InputNumber @bind-Value="JeuForm.AnneeSortie" />
+        <ValidationMessage For="() => JeuForm.AnneeSortie" />
+
+    </div>
+    <div class="form-control form-control-sm">
+        Genre : 
+        <InputSelect @bind-Value="JeuForm.Genre">
+            @foreach(string g in Genres)
+            {
+                <option value="@g">@g</option>
+            }
+        </InputSelect>
+    </div>
+    <div class="form-control form-control-sm">
+        Description : <InputTextArea @bind-Value="JeuForm.Description" />
+        <ValidationMessage For="() => JeuForm.Description" />
+
+    </div>
+    <button class="btn btn-success btn-sm">Valider</button>
+    <ValidationSummary />
+</EditForm>

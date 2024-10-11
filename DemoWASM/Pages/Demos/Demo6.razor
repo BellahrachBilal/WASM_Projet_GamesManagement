@@ -1,0 +1,20 @@
+﻿@page "/demo6"
+@using DemoWASM.Models
+@attribute [Authorize(Roles = "Admin")]
+<h3>Demo6</h3>
+
+<table class="table table-striped">
+    @foreach(User u in Liste)
+    {
+        <tr>
+            <td>@u.Id</td>
+            <td>@u.Email</td>
+            <td>@u.Nickname</td>
+            <td>@(u.IsAdmin ? "Admin" : "User")</td>
+        </tr>
+    }
+</table>
+
+@code {
+
+}

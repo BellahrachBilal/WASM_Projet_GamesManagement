@@ -1,0 +1,31 @@
+﻿<div class="card">
+    <div class="card-title bg-info">
+        Modification d'un Gamer
+    </div>
+    <div class="card-body">
+        <EditForm Model="CurrentGamer" OnValidSubmit="OnValidSubmit">
+            <DataAnnotationsValidator />
+            <div>
+                Pseudo : <InputText class="form-control form-control-sm" @bind-Value="CurrentGamer.Pseudo" />
+                <ValidationMessage For="() => CurrentGamer.Pseudo" />
+            </div>
+            <div>
+                Email : <InputText class="form-control form-control-sm" @bind-Value="CurrentGamer.Email" />
+                <ValidationMessage For="() => CurrentGamer.Email" />
+            </div>
+            <div>
+                Date de naissance : <InputDate class="form-control form-control-sm" @bind-Value="CurrentGamer.BirthDate" />
+                <ValidationMessage For="() => CurrentGamer.BirthDate" />
+            </div>
+            <div>
+                Mot de passe : <InputText type="password" class="form-control form-control-sm" @bind-Value="CurrentGamer.Password" />
+                <ValidationMessage For="() => CurrentGamer.Password" />
+            </div>
+            <div>
+                Confirmation : <InputText type="password" class="form-control form-control-sm" @bind-Value="CurrentGamer.PasswordConfirm" />
+                <ValidationMessage For="() => CurrentGamer.PasswordConfirm" />
+            </div>
+            <div><button type="submit" class="btn btn-outline-success">Valider</button></div>
+        </EditForm>
+    </div>
+</div>

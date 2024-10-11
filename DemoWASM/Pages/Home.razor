@@ -1,0 +1,22 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world!</h1>
+<h3>
+    <AuthorizeView>
+        <Authorized>
+            Coucou vous êtes bien connecté
+            <p>Bonjour @context.User.Claims.First(x => x.Type == "Nickname").Value</p>
+        </Authorized>
+        
+        <NotAuthorized>
+            Veuillez passer par le login !!!
+        </NotAuthorized>
+    </AuthorizeView>
+    <AuthorizeView Roles="Admin">
+        <Authorized>Salut Jean-Michel presqu'admin</Authorized>
+    </AuthorizeView>
+</h3>
+Welcome to your new app.
+

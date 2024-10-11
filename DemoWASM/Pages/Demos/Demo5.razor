@@ -1,0 +1,15 @@
+﻿@page "/demo5"
+@attribute [Authorize]
+<h3>Demo5</h3>
+
+<button class="btn btn-primary" @onclick="SaveInfo">Save</button>
+<button class="btn btn-primary" @onclick="GetInfo">Get</button>
+<button class="btn btn-primary" @onclick="CallJSWithObject">Test JS</button>
+
+
+
+<p>Info du storage : @InfoFromStorage</p>
+
+@code {
+
+}

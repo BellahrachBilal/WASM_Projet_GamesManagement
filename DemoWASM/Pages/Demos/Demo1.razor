@@ -1,0 +1,24 @@
+﻿@page "/demo1"
+<h3>Demo1</h3>
+<div>
+    Valeur contenue dans ma propriété : @Valeur
+    <p class="text-info">Property Binding : One way (lecture seule)</p>
+</div>
+
+<div>
+    <input type="number" @bind-value="Valeur" />
+    <p class="text-info">Two-ways binding (Lecture/écriture)</p>
+</div>
+<div class="test">
+    <button class="btn btn-outline-dark btn-sm"
+            @onclick="Ajouter">
+        Ajouter
+    </button>
+    <button class="btn btn-outline-dark btn-sm"
+            @onclick="@(() => Ajouter5("5"))"
+            disabled="@(Valeur > 50)"
+    >
+        Ajouter 5
+    </button>
+    <p class="text-info">Event Binding (Lier une méthode c# à un event js)</p>
+</div>
