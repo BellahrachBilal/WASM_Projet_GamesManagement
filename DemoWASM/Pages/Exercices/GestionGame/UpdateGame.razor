@@ -1,0 +1,42 @@
+﻿@page "/updategame"
+@using DemoWASM.Models
+
+<h3>UpdateGame</h3>
+
+
+    <EditForm Model="game" OnValidSubmit="UpdateSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <div class="mb-3">
+            <label for="gameDropdown" class="form-label">Select Game</label>
+        <InputSelect id="gameDropdown" class="form-select" @bind-Value="selectedGameId" @onchange="OnGameSelected" TValue="int">
+                <option value="0">Select a game</option>
+                @foreach (var g in games)
+                {
+                    <option value="@g.Id">@g.Title</option>
+                }
+            </InputSelect>
+        </div>
+
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+        <InputText id="Title" class="form-control" @bind-Value="game.Title" required />
+        </div>
+
+        <div class="mb-3">
+            <label for="releaseYear" class="form-label">Release Year</label>
+        <InputNumber id="releaseYear" class="form-control" @bind-Value="game.ReleaseYear" required />
+        </div>
+
+        <div class="mb-3">
+            <label for="synopsis" class="form-label">Synopsis</label>
+        <InputTextArea id="synopsis" class="form-control" @bind-Value="game.Synopsis" required />
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Update Game</button>
+    </EditForm>
+@code {
+
+}

@@ -79,21 +79,33 @@
             </NavLink>
         </div>
         <AuthorizeView>
-            <Authorized>
-                <li class="nav-item px-3">
+            <Authorized>    
+                <div class ="nav-item px-3">
                     <NavLink class="nav-link" href="AddGame">
                         <span class="bi bi-7-square" aria-hidden="true"></span>Add Game
-                    </NavLink>
-                </li>
+                    </NavLink>        
+
+                </div>
             </Authorized>
         </AuthorizeView>
         <AuthorizeView Roles="Admin">
             <Authorized>
-                <li class="nav-item px-3">
+                <div class="nav-item px-3">
                     <NavLink class="nav-link" href="DeleteGame">
                         <span class="bi bi-8-square" aria-hidden="true"></span>Delete Game
                     </NavLink>
-                </li>
+
+                </div>
+            </Authorized>
+        </AuthorizeView>        
+        <AuthorizeView Roles="Admin">
+            <Authorized>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="UpdateGame">
+                        <span class="bi bi-9-square" aria-hidden="true"></span>Update Game
+                    </NavLink>
+
+                </div>
             </Authorized>
         </AuthorizeView>
 
