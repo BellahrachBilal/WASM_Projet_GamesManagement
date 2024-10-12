@@ -19,7 +19,7 @@ namespace DemoWASM.Pages.Exercices.GestionGame
         {
             string token = await JS.InvokeAsync<string>("localStorage.getItem", "token");
             Client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
-            var response = await Client.PostAsJsonAsync("Game", game);
+            var response = await Client.PostAsJsonAsync("Game/addgame", game);
             if(response.IsSuccessStatusCode)
             {
                 Nav.NavigateTo("/ListGames");

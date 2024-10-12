@@ -22,7 +22,7 @@ namespace DemoWASM.Pages.Exercices.GestionGame
             string token = await JS.InvokeAsync<string>("localStorage.getItem", "token");
             Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
-            var response = await Client.DeleteAsync($"Game/deletegame/{id}");
+            var response = await Client.DeleteAsync($"/api/Game/deletegame/{id}");
 
             if (response.IsSuccessStatusCode)
             {

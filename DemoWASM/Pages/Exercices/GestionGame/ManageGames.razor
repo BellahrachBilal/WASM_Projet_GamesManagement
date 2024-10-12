@@ -1,0 +1,68 @@
+﻿@page "/managegames"
+@using DemoWASM.Models
+@using Microsoft.AspNetCore.Components.QuickGrid
+
+<h3>ManageGames</h3>
+
+@* <QuickGrid Items="@games.AsQueryable()" RowSelectionMode="Single" @bind-SelectedItem="selectedGame" TGridItem="Game">
+    <PropertyColumn Property="@(g => g.Title)" Title="Title" />
+    <PropertyColumn Property="@(g => g.ReleaseYear)" Title="Release Year" />
+    <PropertyColumn Property="@(g => g.Synopsis)" Title="Synopsis" />
+    <TemplateColumn Title="Actions">
+        <button class="btn btn-primary" @onclick="(g => UpdateForm(g))">Edit</button>
+
+        <button class="btn btn-danger" @onclick="DeleteGame">Delete</button>
+    </TemplateColumn>
+</QuickGrid>d *@
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Release Year</th>
+            <th>Synopsis</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var game in games)
+        {
+            <tr>
+                <td>@game.Title</td>
+                <td>@game.ReleaseYear</td>
+                <td>@game.Synopsis</td>
+                <td>
+                    <Button @onclick="() => EditGame(game)">Edit</Button>
+                    <Button @onclick="() => DeleteGame(game)">Delete</Button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Form for Adding and Updating Games -->
+<EditForm Model="@game" OnValidSubmit="HandleSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <InputText id="title" class="form-control" @bind-Value="game.Title" placeholder="Title" required />
+    </div>
+
+    <div class="mb-3">
+        <label for="releaseYear" class="form-label">Release Year</label>
+        <InputNumber id="releaseYear" class="form-control" @bind-Value="game.ReleaseYear" required />
+    </div>
+
+    <div class="mb-3">
+        <label for="synopsis" class="form-label">Synopsis</label>
+        <InputTextArea id="synopsis" class="form-control" @bind-Value="game.Synopsis" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">@((isUpdating) ? "Update" : "Add") Game</button>
+    <button type="button" class="btn btn-secondary" @onclick="ClearForm">Clear</button>
+</EditForm>
+@code {
+
+}
